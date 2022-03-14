@@ -1,9 +1,11 @@
 import React from "react"
+import Image from "next/image"
 import { createClient } from "contentful"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 function ctf({ pokus }) {
   console.log(pokus)
+  //const { thumbnail } = pokus.fields
   return (
     <div>
       {pokus.map((pok) => (
@@ -11,6 +13,14 @@ function ctf({ pokus }) {
           <h2 className=" text-xl text-orange-600 font-display">
             {pok.fields.title}
           </h2>
+          <div>
+            <Image
+              src={"https:" + pok.fields.image.fields.file.url}
+              width={pok.fields.image.fields.file.details.image.width}
+              height={pok.fields.image.fields.file.details.image.height}
+              alt="ok"
+            />
+          </div>
           <div className="text-gray-800 font-body">
             {documentToReactComponents(pok.fields.body)}
           </div>
