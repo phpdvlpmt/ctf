@@ -22,14 +22,16 @@ function ctf({ pokus }) {
               <a> {pok.fields.title}</a>
             </Link>
           </h2>
-          <div>
-            <Image
-              src={"https:" + pok.fields.image.fields.file.url}
-              width={pok.fields.image.fields.file.details.image.width}
-              height={pok.fields.image.fields.file.details.image.height}
-              alt="ok"
-            />
-          </div>
+          {pok.fields.image && (
+            <div>
+              <Image
+                src={"https:" + pok.fields.image.fields.file.url}
+                width={pok.fields.image.fields.file.details.image.width}
+                height={pok.fields.image.fields.file.details.image.height}
+                alt="ok"
+              />
+            </div>
+          )}
           <div className="text-gray-800 font-body">
             {documentToReactComponents(pok.fields.body)}
           </div>
