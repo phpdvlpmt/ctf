@@ -9,7 +9,7 @@ function ctf({ pokus }) {
   console.log(pokus)
   //const { thumbnail } = pokus.fields
   return (
-    <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 gap-10 md:grid md:grid-cols-3">
+    <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 gap-10 md:grid md.grid-cols-3">
       <Head>
         <title>nxt</title>
         <meta name="description" content="next app" />
@@ -18,20 +18,18 @@ function ctf({ pokus }) {
       {pokus.map((pok) => (
         <div key={pok.sys.id} className="bg-white rounded p-10 shadow-md">
           <h2 className=" text-xl text-orange-600 font-display">
-            <Link href={"/ctf/" + pok.fields.slug} passHref>
+            <Link href={"ctf/" + pok.fields.slug}>
               <a> {pok.fields.title}</a>
             </Link>
           </h2>
-          {pok.fields.image && (
-            <div>
-              <Image
-                src={"https:" + pok.fields.image.fields.file.url}
-                width={pok.fields.image.fields.file.details.image.width}
-                height={pok.fields.image.fields.file.details.image.height}
-                alt="ok"
-              />
-            </div>
-          )}
+          <div>
+            <Image
+              src={"https:" + pok.fields.image.fields.file.url}
+              width={pok.fields.image.fields.file.details.image.width}
+              height={pok.fields.image.fields.file.details.image.height}
+              alt="ok"
+            />
+          </div>
           <div className="text-gray-800 font-body">
             {documentToReactComponents(pok.fields.body)}
           </div>
