@@ -13,6 +13,9 @@ export default function Header() {
         <Link href="/posts">
           <a>Posts</a>
         </Link>
+        <Link href="/ctf">
+          <a>Contentful</a>
+        </Link>
       </nav>
     </header>
   )

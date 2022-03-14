@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import Image from "next/image"
 import { createClient } from "contentful"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -11,7 +12,9 @@ function ctf({ pokus }) {
       {pokus.map((pok) => (
         <div key={pok.sys.id}>
           <h2 className=" text-xl text-orange-600 font-display">
-            {pok.fields.title}
+            <Link href={"ctf/" + pok.fields.slug}>
+              <a> {pok.fields.title}</a>
+            </Link>
           </h2>
           <div>
             <Image
