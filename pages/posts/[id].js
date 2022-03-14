@@ -1,8 +1,14 @@
 import React from "react"
+import Head from "next/head"
 
 function Post({ post }) {
   return (
     <div className="space-y-4  px-10">
+      <Head>
+        <title>nxt</title>
+        <meta name="description" content="next app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <h1 className=" text-lg font-bold text-amber-500 font-display">
         {post.title}
       </h1>

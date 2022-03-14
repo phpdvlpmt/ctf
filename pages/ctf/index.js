@@ -1,4 +1,5 @@
 import React from "react"
+import Head from "next/head"
 import Link from "next/link"
 import Image from "next/image"
 import { createClient } from "contentful"
@@ -8,11 +9,16 @@ function ctf({ pokus }) {
   console.log(pokus)
   //const { thumbnail } = pokus.fields
   return (
-    <div>
+    <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 gap-10 md:grid md:grid-cols-3">
+      <Head>
+        <title>nxt</title>
+        <meta name="description" content="next app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {pokus.map((pok) => (
-        <div key={pok.sys.id}>
+        <div key={pok.sys.id} className="bg-white rounded p-10 shadow-md">
           <h2 className=" text-xl text-orange-600 font-display">
-            <Link href={"ctf/" + pok.fields.slug}>
+            <Link href={"/ctf/" + pok.fields.slug} passHref>
               <a> {pok.fields.title}</a>
             </Link>
           </h2>

@@ -1,9 +1,15 @@
 import React from "react"
+import Head from "next/head"
 import Post from "../../components/Post"
 
 function posts({ posts, users }) {
   return (
     <div className="px-5 py-5">
+      <Head>
+        <title>nxt</title>
+        <meta name="description" content="next app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {posts.slice(0, 80).map((post) => (
         <Post
           key={post.id}

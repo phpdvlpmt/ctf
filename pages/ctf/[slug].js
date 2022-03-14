@@ -1,23 +1,34 @@
 import React from "react"
+import Head from "next/head"
 import Image from "next/image"
 import { createClient } from "contentful"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 function FourHistoryDetails({ pokus }) {
   return (
-    <div>
-      <div>
-        <h2 className=" text-xl text-orange-600 font-display">
-          {pokus.fields.title}
-        </h2>
-      </div>
-      <div>
-        <Image
-          src={"https:" + pokus.fields.image.fields.file.url}
-          width={pokus.fields.image.fields.file.details.image.width}
-          height={pokus.fields.image.fields.file.details.image.height}
-          alt="ok"
-        />
+    <div className=" p-10 ">
+      <Head>
+        <title>nxt</title>
+        <meta name="description" content="next app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className=" text-gray-800 bg-white rounded p-10 space-y-3 shadow-md">
+        <div className="">
+          <h2 className="text-xl text-orange-600 font-display">
+            {pokus.fields.title}
+          </h2>
+        </div>
+        <div>
+          <Image
+            src={"https:" + pokus.fields.image.fields.file.url}
+            width={pokus.fields.image.fields.file.details.image.width}
+            height={pokus.fields.image.fields.file.details.image.height}
+            alt="ok"
+          />
+        </div>
+        <div className="text-gray-800 font-body">
+          {documentToReactComponents(pokus.fields.body)}
+        </div>
       </div>
     </div>
   )
