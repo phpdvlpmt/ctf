@@ -6,8 +6,6 @@ import { createClient } from "contentful"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 function ctf({ pokus }) {
-  console.log(pokus)
-  //const { thumbnail } = pokus.fields
   return (
     <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 gap-10 md:grid md:grid-cols-3">
       <Head>
@@ -25,14 +23,18 @@ function ctf({ pokus }) {
               <a> {pok.fields.title}</a>
             </Link>
           </h2>
-          <div>
-            <Image
-              src={"https:" + pok.fields.image.fields.file.url}
-              width={pok.fields.image.fields.file.details.image.width}
-              height={pok.fields.image.fields.file.details.image.height}
-              alt="ok"
-            />
-          </div>
+          {pok.fields.image && (
+            <div className="w-full h-60 relative">
+              <Image
+                src={"https:" + pok.fields.image.fields.file.url}
+                // width={pok.fields.image.fields.file.details.image.width}
+                //height={pok.fields.image.fields.file.details.image.height}
+                alt="ok"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          )}
           <div className="text-gray-800 font-body">
             {documentToReactComponents(pok.fields.body)}
           </div>

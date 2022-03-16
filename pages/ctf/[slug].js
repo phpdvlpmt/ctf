@@ -12,7 +12,7 @@ function FourHistoryDetails({ pokus }) {
         <meta name="description" content="next app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className=" text-gray-800 bg-white rounded p-10 space-y-3 shadow-md">
+      <div className=" max-w-2xl mx-auto  text-gray-800 bg-white rounded p-10 space-y-3 shadow-md">
         <div className="">
           <h2 className="text-xl text-orange-600 font-display">
             {pokus.fields.title}
