@@ -3,6 +3,8 @@ import Head from "next/head"
 import Image from "next/image"
 import { createClient } from "contentful"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import moment from "moment"
+import "moment/locale/cs"
 
 function FourHistoryDetails({ pokus }) {
   return (
@@ -17,6 +19,7 @@ function FourHistoryDetails({ pokus }) {
           <h2 className="text-xl text-orange-600 font-display">
             {pokus.fields.title}
           </h2>
+          <p>{moment(pokus.sys.createdAt).format("LL")}</p>
         </div>
         {pokus.fields.image && (
           <div>

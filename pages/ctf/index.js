@@ -4,10 +4,11 @@ import Link from "next/link"
 import Image from "next/image"
 import { createClient } from "contentful"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-
+import moment from "moment"
+import "moment/locale/cs"
 function ctf({ pokus }) {
   return (
-    <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 grid  grid-cols-1 gap-y-4 md:grid md:grid-cols-3">
+    <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 grid  grid-cols-1 gap-y-4 md:grid md:grid-cols-3 md:gap-4">
       <Head>
         <title>nxt</title>
         <meta name="description" content="next app" />
@@ -19,10 +20,11 @@ function ctf({ pokus }) {
           className="bg-white rounded p-5 space-y-3 shadow-md"
         >
           <h2 className=" text-xl text-orange-600 font-display">
-            <Link href={"ctf/" + pok.fields.slug}>
+            <Link href={"/ctf/" + pok.fields.slug}>
               <a> {pok.fields.title}</a>
             </Link>
           </h2>
+          <p>{moment(pok.sys.createdAt).format("LL")}</p>
           {pok.fields.image && (
             <div className="w-full h-60 relative">
               <Image
@@ -32,6 +34,7 @@ function ctf({ pokus }) {
                 alt="ok"
                 layout="fill"
                 objectFit="cover"
+                priority
               />
             </div>
           )}
