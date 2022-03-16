@@ -7,7 +7,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 function ctf({ pokus }) {
   return (
-    <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 gap-10 md:grid md:grid-cols-3">
+    <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 grid  grid-cols-1 gap-y-4 md:grid md:grid-cols-3">
       <Head>
         <title>nxt</title>
         <meta name="description" content="next app" />
