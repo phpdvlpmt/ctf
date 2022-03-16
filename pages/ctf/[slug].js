@@ -19,12 +19,14 @@ function FourHistoryDetails({ pokus }) {
           </h2>
         </div>
         <div>
-          <Image
-            src={"https:" + pokus.fields.image.fields.file.url}
-            width={pokus.fields.image.fields.file.details.image.width}
-            height={pokus.fields.image.fields.file.details.image.height}
-            alt="ok"
-          />
+          {pokus.fields.image && (
+            <Image
+              src={"https:" + pokus.fields.image.fields.file.url}
+              width={pokus.fields.image.fields.file.details.image.width}
+              height={pokus.fields.image.fields.file.details.image.height}
+              alt="ok"
+            />
+          )}
         </div>
         <div className="text-gray-800 font-body">
           {documentToReactComponents(pokus.fields.body)}
