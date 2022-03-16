@@ -23,9 +23,8 @@ function ctf({ pokus }) {
               <a> {pok.fields.title}</a>
             </Link>
           </h2>
-
-          <div className="w-full h-60 relative">
-            {pok.fields.image && (
+          {pok.fields.image && (
+            <div className="w-full h-60 relative">
               <Image
                 src={"https:" + pok.fields.image.fields.file.url}
                 // width={pok.fields.image.fields.file.details.image.width}
@@ -34,8 +33,8 @@ function ctf({ pokus }) {
                 layout="fill"
                 objectFit="cover"
               />
-            )}
-          </div>
+            </div>
+          )}
 
           <div className="text-gray-800 font-body">
             {documentToReactComponents(pok.fields.body)}
