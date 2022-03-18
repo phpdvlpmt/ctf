@@ -31,7 +31,7 @@ function FourHistoryDetails({ pokus }) {
             />
           </div>
         )}
-        <div className="text-gray-800 font-body">
+        <div className="text-gray-800 font-body ctf">
           {documentToReactComponents(pokus.fields.body)}
         </div>
       </div>

@@ -8,7 +8,7 @@ import moment from "moment"
 import "moment/locale/cs"
 function ctf({ pokus }) {
   return (
-    <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 grid  grid-cols-1 gap-y-4 md:grid md:grid-cols-3 md:gap-4">
+    <div className="p-5 text-gray-900  sm:grid sm:grid-cols-2 grid  grid-cols-1 gap-y-4 md:grid lg:grid-cols-3 lg:gap-4">
       <Head>
         <title>nxt</title>
         <meta name="description" content="next app" />
@@ -39,7 +39,7 @@ function ctf({ pokus }) {
             </div>
           )}
 
-          <div className="text-gray-800 font-body">
+          <div className="text-gray-600 font-body ctf">
             {documentToReactComponents(pok.fields.body)}
           </div>
         </div>
